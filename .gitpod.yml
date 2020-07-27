@@ -1,5 +1,2 @@
-image:
-  file: .gitpod.Dockerfile
-
 tasks:
   - init: nvm install 10 && nvm use 10
