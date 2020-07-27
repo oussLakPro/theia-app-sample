@@ -2,7 +2,7 @@ import { ContainerModule } from "inversify";
 import { CommandContribution, MenuContribution } from "@theia/core/lib/common";
 import { JsonschemaFormCommandContribution, JsonschemaFormMenuContribution } from "./jsonforms-contribution";
 import { OpenHandler, WidgetFactory } from "@theia/core/lib/browser";
-import { JsonFormsOpenHandler } from "./jsonorms-open-handler";
+import { JsonFormsOpenHandler } from "./jsonforms-open-handler";
 import { JsonFormsWidget, JsonschemaFormWidgetOptions } from "./jsonforms-widget";
 
 export default new ContainerModule(bind => {

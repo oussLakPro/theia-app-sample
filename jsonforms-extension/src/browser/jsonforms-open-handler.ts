@@ -4,11 +4,14 @@ import { injectable, inject } from "inversify";
 import { EditorManager } from "@theia/editor/lib/browser";
 import { JsonFormsWidget, JsonschemaFormWidgetOptions } from "./jsonforms-widget";
 
+/**
+ * To obtain the action in the contextual menu.
+ */
 @injectable()
 export class JsonFormsOpenHandler extends WidgetOpenHandler<JsonFormsWidget> {
     
     readonly id = JsonFormsWidget.id;
-    readonly label = "Form";
+    readonly label = "JsonForms widget";
 
     @inject(EditorManager)
     protected readonly editorManager: EditorManager;

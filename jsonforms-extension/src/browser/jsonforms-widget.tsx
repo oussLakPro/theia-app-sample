@@ -23,7 +23,7 @@ export class JsonFormsWidget extends BaseWidget {
     protected async init(): Promise<void> {
         const { uri } = this.options;
         this.id = JsonFormsWidget.id + ':' + uri
-        this.title.label = 'Form ' + new URI(uri).displayName;
+        this.title.label = 'JSONForm ' + new URI(uri).displayName;
         this.title.closable = true;
 
         this.node.style.padding = '0px 15px';
