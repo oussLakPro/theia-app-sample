@@ -9,6 +9,7 @@
     "@theia/preferences": "next",
     "@theia/navigator": "next",
     "@theia/process": "next",
+    "@theia/messages": "next",
     "jsonforms-extension": "0.0.0"
   },
   "devDependencies": {
