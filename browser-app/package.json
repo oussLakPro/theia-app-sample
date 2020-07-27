@@ -8,14 +8,7 @@
     "@theia/workspace": "next",
     "@theia/preferences": "next",
     "@theia/navigator": "next",
-    "@theia/process": "next",
-    "@theia/terminal": "next",
-    "@theia/editor": "next",
-    "@theia/languages": "next",
-    "@theia/markers": "next",
-    "@theia/monaco": "next",
-    "@theia/typescript": "next",
-    "@theia/messages": "next"
+    "@theia/process": "next"
   },
   "devDependencies": {
     "@theia/cli": "next"
@@ -26,11 +19,6 @@
     "watch": "theia build --watch --mode development"
   },
   "theia": {
-    "target": "browser",
-    "frontend": {
-      "config": {
-        "defaultTheme": "light"
-      }
-    }
+    "target": "browser"
   }
 }
