@@ -1,37 +1,91 @@
 import * as React from "react";
+import { JSONSchema6 } from "json-schema";
+import Form, { IChangeEvent } from "react-jsonschema-form";
+import * as jsoncparser from "jsonc-parser";
+import { MonacoTextModelService } from "@theia/monaco/lib/browser/monaco-text-model-service";
+import { MonacoEditorModel } from "@theia/monaco/lib/browser/monaco-editor-model";
+import { DisposableCollection } from "@theia/core";
+import { ReferencedModelStorage } from "./referenced-model-storage";
 
-export interface Greeting {
-    name: string
-}
-export class GreetingView extends React.Component<Greeting> {
-    render(): JSX.Element {
-        return <h1>Hello {this.props.name} at Theia Workshop!</h1>;
-    }
-}
+export class JsonFormsView extends React.Component<JsonFormsView.Props, JsonFormsView.State> {
 
-export class JsonFormsView extends React.Component<{}, Greeting> {
+    protected readonly schemaStorage: ReferencedModelStorage<JSONSchema6>;
 
-    constructor(props: {}) {
+    constructor(props: JsonFormsView.Props) {
         super(props);
         this.state = {
-            name: 'World'
+            schema: {
+                default: {}
+            },
+            formData: {}
         }
+        const { model, modelService } = props;
+        this.schemaStorage = new ReferencedModelStorage(model, modelService, '$schema', { default: {} });
     }
 
-    render(): JSX.Element {
-        // TODO: render a place of greeting:
-        // - Add a new property `at` to `Greeting` of `string` type to define a place of greeting state.
-        // - Initialize the default place of greeting as `Theia Workshop` in the constructor.
-        // - Add a new property `updateAt` to update the place of greeting state. It should be implemented after `updateName` property.
-        // - Render another input field for the place of greeting after the input field for name. Separate them by ` at ` string.
-        return <React.Fragment>
-            <GreetingView name={this.state.name} />
-            Greet <input value={this.state.name} onChange={this.updateName} />
-        </React.Fragment>;
+    render(): JSX.Element | null {
+        // TODO: track and apply uiSchema to Form
+        // - Add `uiSchema` state to `JsonFormsView.State`.
+        //   - It should be of `UiSchema` type.
+        //   - Initialize it with an empty object `{}` in the constructor.
+        // - Pass `uiSchema` state as an attribute to `Form` react component.
+        // - Add a new instance of `ReferencedModelStorage` which tracks changes in `$uiSchema` attribute.
+        //   - Hint: Do it by analogy with `schemaStorage` property.
+        //   - List to its changes in `componentWillMount` method and udpate `uiSchema` state accordingly.
+        //   - Update the storage whenever the form data model is changed in `reconcileFormData` method.
+        const { schema, formData } = this.state;
+        return <Form
+            schema={schema}
+            formData={formData}
+            onChange={this.submit}>
+            <div />
+        </Form>;
     }
 
-    protected updateName = (e: React.ChangeEvent<HTMLInputElement>) => this.setState({
-        name: e.currentTarget.value
-    });
+    protected submit = (e: IChangeEvent<any>) => {
+        const model = this.props.model.textEditorModel;
+        const content = model.getValue();
+        const formattingOptions = { tabSize: 2, insertSpaces: true, eol: '' };
+        const edits = jsoncparser.modify(content, [], e.formData, { formattingOptions });
+        model.applyEdits(edits.map(e => {
+            const start = model.getPositionAt(e.offset);
+            const end = model.getPositionAt(e.offset + e.length);
+            return {
+                range: monaco.Range.fromPositions(start, end),
+                text: e.content
+            }
+        }));
+    }
 
+    protected readonly toDispose = new DisposableCollection();
+    componentWillMount(): void {
+        this.toDispose.push(this.schemaStorage);
+        this.toDispose.push(this.schemaStorage.onDidChange(schema => this.setState({ schema })));
+
+        this.reconcileFormData();
+        this.toDispose.push(this.props.model.onDidChangeContent(() => this.reconcileFormData()));
+    }
+    componentWillUnmount(): void {
+        this.toDispose.dispose();
+    }
+    componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
+        console.error(error);
+    }
+
+    protected async reconcileFormData(): Promise<void> {
+        const formData = jsoncparser.parse(jsoncparser.stripComments(this.props.model.getText())) || {};
+        this.setState({ formData });
+        this.schemaStorage.update(formData);
+    }
+
+}
+export namespace JsonFormsView {
+    export interface Props {
+        model: MonacoEditorModel
+        modelService: MonacoTextModelService
+    }
+    export interface State {
+        schema: JSONSchema6
+        formData: any
+    }
 }

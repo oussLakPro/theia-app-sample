@@ -6,80 +6,34 @@
 5 silly initialize attempt
 6 silly initialize success
 7 silly execute attempt
-8 silly runScriptInPackageStreaming [ 'prepare', [], 'browser-app' ]
-9 silly getExecOpts { cwd: '/workspace/theia-app-sample/browser-app' }
-10 silly runScriptInPackageStreaming [ 'prepare', [], 'jsonform-extension' ]
-11 silly getExecOpts { cwd: '/workspace/theia-app-sample/jsonform-extension' }
-12 error execute callback with error
-13 error Error: Command failed: npm run prepare
-13 error warning package.json: No license field
-13 error warning package.json: No license field
-13 error error Command failed with exit code 1.
-13 error npm ERR! code ELIFECYCLE
-13 error npm ERR! errno 1
-13 error npm ERR! jsonform-extension@0.0.0 prepare: `yarn run clean && yarn run build`
-13 error npm ERR! Exit status 1
-13 error npm ERR!
-13 error npm ERR! Failed at the jsonform-extension@0.0.0 prepare script.
-13 error npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-13 error
-13 error npm ERR! A complete log of this run can be found in:
-13 error npm ERR!     /home/gitpod/.npm/_logs/2020-07-27T13_06_42_559Z-debug.log
-13 error
-13 error
-13 error > jsonform-extension@0.0.0 prepare /workspace/theia-app-sample/jsonform-extension
-13 error > yarn run clean && yarn run build
-13 error
-13 error yarn run v1.22.4
-13 error $ rimraf lib
-13 error Done in 0.18s.
-13 error yarn run v1.22.4
-13 error $ tsc
-13 error Version 3.9.7
-13 error Syntax:   tsc [options] [file...]
-13 error
-13 error Examples: tsc hello.ts
-13 error           tsc --outFile file.js file.ts
-13 error           tsc @args.txt
-13 error           tsc --build tsconfig.json
-13 error
-13 error Options:
-13 error  -h, --help                                         Print this message.
-13 error  -w, --watch                                        Watch input files.
-13 error  --pretty                                           Stylize errors and messages using color and context (experimental).
-13 error  --all                                              Show all compiler options.
-13 error  -v, --version                                      Print the compiler's version.
-13 error  --init                                             Initializes a TypeScript project and creates a tsconfig.json file.
-13 error  -p FILE OR DIRECTORY, --project FILE OR DIRECTORY  Compile the project given the path to its configuration file, or to a folder with a 'tsconfig.json'.
-13 error  -b, --build                                        Build one or more projects and their dependencies, if out of date
-13 error  -t VERSION, --target VERSION                       Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'.
-13 error  -m KIND, --module KIND                             Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'.
-13 error  --lib                                              Specify library files to be included in the compilation.
-13 error                                                       'es5' 'es6' 'es2015' 'es7' 'es2016' 'es2017' 'es2018' 'es2019' 'es2020' 'esnext' 'dom' 'dom.iterable' 'webworker' 'webworker.importscripts' 'scripthost' 'es2015.core' 'es2015.collection' 'es2015.generator' 'es2015.iterable' 'es2015.promise' 'es2015.proxy' 'es2015.reflect' 'es2015.symbol' 'es2015.symbol.wellknown' 'es2016.array.include' 'es2017.object' 'es2017.sharedmemory' 'es2017.string' 'es2017.intl' 'es2017.typedarrays' 'es2018.asyncgenerator' 'es2018.asynciterable' 'es2018.intl' 'es2018.promise' 'es2018.regexp' 'es2019.array' 'es2019.object' 'es2019.string' 'es2019.symbol' 'es2020.bigint' 'es2020.promise' 'es2020.string' 'es2020.symbol.wellknown' 'esnext.array' 'esnext.symbol' 'esnext.asynciterable' 'esnext.intl' 'esnext.bigint' 'esnext.string' 'esnext.promise'
-13 error  --allowJs                                          Allow javascript files to be compiled.
-13 error  --jsx KIND                                         Specify JSX code generation: 'preserve', 'react-native', or 'react'.
-13 error  -d, --declaration                                  Generates corresponding '.d.ts' file.
-13 error  --declarationMap                                   Generates a sourcemap for each corresponding '.d.ts' file.
-13 error  --sourceMap                                        Generates corresponding '.map' file.
-13 error  --outFile FILE                                     Concatenate and emit output to single file.
-13 error  --outDir DIRECTORY                                 Redirect output structure to the directory.
-13 error  --removeComments                                   Do not emit comments to output.
-13 error  --noEmit                                           Do not emit outputs.
-13 error  --strict                                           Enable all strict type-checking options.
-13 error  --noImplicitAny                                    Raise error on expressions and declarations with an implied 'any' type.
-13 error  --strictNullChecks                                 Enable strict null checks.
-13 error  --strictFunctionTypes                              Enable strict checking of function types.
-13 error  --strictBindCallApply                              Enable strict 'bind', 'call', and 'apply' methods on functions.
-13 error  --strictPropertyInitialization                     Enable strict checking of property initialization in classes.
-13 error  --noImplicitThis                                   Raise error on 'this' expressions with an implied 'any' type.
-13 error  --alwaysStrict                                     Parse in strict mode and emit "use strict" for each source file.
-13 error  --noUnusedLocals                                   Report errors on unused locals.
-13 error  --noUnusedParameters                               Report errors on unused parameters.
-13 error  --noImplicitReturns                                Report error when not all code paths in function return a value.
-13 error  --noFallthroughCasesInSwitch                       Report errors for fallthrough cases in switch statement.
-13 error  --types                                            Type declaration files to be included in compilation.
-13 error  --esModuleInterop                                  Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'.
-13 error  @<file>                                            Insert command line options and files from a file.
-13 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-13 error
-13 error     at Promise.all.then.arr (/workspace/theia-app-sample/node_modules/execa/index.js:236:11)
+8 silly runScriptInPackageStreaming [ 'prepare', [], 'jsonforms-extension' ]
+9 silly getExecOpts { cwd: '/workspace/theia-app-sample/jsonforms-extension' }
+10 error execute callback with error
+11 error Error: Command failed: npm run prepare
+11 error warning package.json: No license field
+11 error warning package.json: No license field
+11 error error Command failed with exit code 2.
+11 error npm ERR! code ELIFECYCLE
+11 error npm ERR! errno 2
+11 error npm ERR! jsonforms-extension@0.0.0 prepare: `yarn run clean && yarn run build`
+11 error npm ERR! Exit status 2
+11 error npm ERR!
+11 error npm ERR! Failed at the jsonforms-extension@0.0.0 prepare script.
+11 error npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+11 error
+11 error npm ERR! A complete log of this run can be found in:
+11 error npm ERR!     /home/gitpod/.npm/_logs/2020-07-27T16_05_01_186Z-debug.log
+11 error
+11 error
+11 error > jsonforms-extension@0.0.0 prepare /workspace/theia-app-sample/jsonforms-extension
+11 error > yarn run clean && yarn run build
+11 error
+11 error yarn run v1.22.4
+11 error $ rimraf lib
+11 error Done in 0.19s.
+11 error yarn run v1.22.4
+11 error $ tsc
+11 error src/browser/referenced-model-storage.ts(44,29): error TS2532: Object is possibly 'undefined'.
+11 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+11 error
+11 error     at Promise.all.then.arr (/workspace/theia-app-sample/node_modules/execa/index.js:236:11)
