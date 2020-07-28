@@ -1,7 +1,7 @@
 {
-  "firstName": "Chuck",
+  "firstName": "Chuckis",
   "lastName": "Norris",
-  "age": 75,
+  "age": 92,
   "bio": "Roundhouse kicking asses since 1940",
   "password": "noneed",
   "$schema": "simple-schema.json"

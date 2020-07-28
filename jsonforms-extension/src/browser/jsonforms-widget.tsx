@@ -6,7 +6,7 @@ import URI from "@theia/core/lib/common/uri";
 import { MonacoTextModelService } from "@theia/monaco/lib/browser/monaco-text-model-service";
 import { MonacoEditorModel } from "@theia/monaco/lib/browser/monaco-editor-model";
 import { Disposable, Reference } from "@theia/core";
-// import { JsonFormsView } from "./jsonforms-view";
+import { JsonFormsView } from "./jsonforms-view";
 
 export const JsonschemaFormWidgetOptions = Symbol('JsonschemaFormWidgetOptions');
 export interface JsonschemaFormWidgetOptions {
@@ -52,9 +52,8 @@ export class JsonFormsWidget extends BaseWidget {
 
     protected onUpdateRequest(message: Message): void {
         super.onUpdateRequest(message);
-        // const model = this.reference && this.reference.object;
-        // ReactDOM.render(model ? <JsonFormsView model={model} modelService={this.modelService} /> : null!, this.viewNode);
-        ReactDOM.render(<h1> THEIA DEBUG</h1>, this.viewNode);
+        const model = this.reference && this.reference.object;
+        ReactDOM.render(model ? <JsonFormsView model={model} modelService={this.modelService} /> : null!, this.viewNode);
     }
 
 }

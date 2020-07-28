@@ -33,18 +33,30 @@ export class JsonFormsView extends React.Component<JsonFormsView.Props, JsonForm
         //   - Hint: Do it by analogy with `schemaStorage` property.
         //   - List to its changes in `componentWillMount` method and udpate `uiSchema` state accordingly.
         //   - Update the storage whenever the form data model is changed in `reconcileFormData` method.
+        
+        
         const { schema, formData } = this.state;
-        // return <Form
-        //     schema={schema}
-        //     formData={formData}
-        //     onChange={this.submit}>
-        //     <div />
-        // </Form>;
         return <Form
             schema={schema}
-            formData={formData}>
+            formData={formData}
+            onChange={this.submit}>
             <div />
         </Form>;
+        
+        // const tempSchema : JSONSchema6 = {
+        //     title: "Todo",
+        //     type: "object",
+        //     required: ["title"],
+        //     properties: {
+        //         title: {type: "string", title: "Title", default: "A new task"},
+        //         done: {type: "boolean", title: "Done?", default: true}
+        //     }
+        // };
+
+        // return <Form
+        //     schema={tempSchema}>
+        //     <div />
+        // </Form>;
     }
 
     protected submit = (e: IChangeEvent<any>) => {
