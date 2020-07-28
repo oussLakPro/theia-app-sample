@@ -22,7 +22,7 @@
 11 error npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 11 error
 11 error npm ERR! A complete log of this run can be found in:
-11 error npm ERR!     /home/gitpod/.npm/_logs/2020-07-27T16_05_01_186Z-debug.log
+11 error npm ERR!     /home/gitpod/.npm/_logs/2020-07-28T11_00_03_114Z-debug.log
 11 error
 11 error
 11 error > jsonforms-extension@0.0.0 prepare /workspace/theia-app-sample/jsonforms-extension
@@ -30,10 +30,10 @@
 11 error
 11 error yarn run v1.22.4
 11 error $ rimraf lib
-11 error Done in 0.19s.
+11 error Done in 0.22s.
 11 error yarn run v1.22.4
 11 error $ tsc
-11 error src/browser/referenced-model-storage.ts(44,29): error TS2532: Object is possibly 'undefined'.
+11 error src/browser/jsonforms-widget.tsx(55,15): error TS6133: 'model' is declared but its value is never read.
 11 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 11 error
 11 error     at Promise.all.then.arr (/workspace/theia-app-sample/node_modules/execa/index.js:236:11)

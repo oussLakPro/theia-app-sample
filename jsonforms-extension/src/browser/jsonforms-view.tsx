@@ -34,10 +34,15 @@ export class JsonFormsView extends React.Component<JsonFormsView.Props, JsonForm
         //   - List to its changes in `componentWillMount` method and udpate `uiSchema` state accordingly.
         //   - Update the storage whenever the form data model is changed in `reconcileFormData` method.
         const { schema, formData } = this.state;
+        // return <Form
+        //     schema={schema}
+        //     formData={formData}
+        //     onChange={this.submit}>
+        //     <div />
+        // </Form>;
         return <Form
             schema={schema}
-            formData={formData}
-            onChange={this.submit}>
+            formData={formData}>
             <div />
         </Form>;
     }

@@ -6,8 +6,8 @@ import URI from "@theia/core/lib/common/uri";
 import { Disposable } from "@theia/core";
 import { ReactComponentView } from "./react-component-view";
 
-export const JsonschemaFormWidgetOptions = Symbol('JsonschemaFormWidgetOptions');
-export interface JsonschemaFormWidgetOptions {
+export const ReactWidgetOptions = Symbol('ReactWidgetOptions');
+export interface ReactWidgetOptions {
     uri: string
 }
 
@@ -16,14 +16,14 @@ export class ReactTestWidget extends BaseWidget {
 
     static id = 'reactComponent-widget';
 
-    @inject(JsonschemaFormWidgetOptions)
-    protected readonly options: JsonschemaFormWidgetOptions;
+    @inject(ReactWidgetOptions)
+    protected readonly options: ReactWidgetOptions;
 
     @postConstruct()
     protected async init(): Promise<void> {
         const { uri } = this.options;
         this.id = ReactTestWidget.id + ':' + uri
-        this.title.label = 'JSONForm ' + new URI(uri).displayName;
+        this.title.label = 'REACT ' + new URI(uri).displayName;
         this.title.closable = true;
 
         this.node.style.padding = '0px 15px';
