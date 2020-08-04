@@ -1,3 +1,6 @@
 node_modules
 src-gen
 lib
+lerna-debug.log
+.project
+**/gen-webpack.config.js

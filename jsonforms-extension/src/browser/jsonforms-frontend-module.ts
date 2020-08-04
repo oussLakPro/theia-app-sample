@@ -31,7 +31,7 @@ export default new ContainerModule(bind => {
     // add your contribution bindings here
     bind(CommandContribution).to(JsonschemaFormCommandContribution).inSingletonScope();
     bind(MenuContribution).to(JsonschemaFormMenuContribution).inSingletonScope();
-
+    
     // *****************************
     //  To test jsonforms component
     // *****************************

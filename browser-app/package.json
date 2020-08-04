@@ -10,7 +10,8 @@
     "@theia/navigator": "next",
     "@theia/process": "next",
     "@theia/messages": "next",
-    "jsonforms-extension": "0.0.0"
+    "jsonforms-extension": "0.0.0",
+    "disco-menus-extension": "0.0.0"
   },
   "devDependencies": {
     "@theia/cli": "next"

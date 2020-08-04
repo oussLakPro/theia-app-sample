@@ -27,7 +27,7 @@ export class JsonschemaFormMenuContribution implements MenuContribution {
     registerMenus(menus: MenuModelRegistry): void {
         menus.registerMenuAction(CommonMenus.EDIT_FIND, {
             commandId: JsonschemaFormCommand.id,
-            label: 'Say Hello'
+            label: 'Say Hellooxo 1'
         });
     }
 }
